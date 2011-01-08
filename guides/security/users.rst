@@ -126,29 +126,29 @@ options, you only need to select the one which suits your needs best:
         # app/config/security.yml
         security.config:
             encoders:
-                MyBundle/Entity/MyUser: sha512
-                MyBundle/Entity/MyUser: plaintext
-                MyBundle/Entity/MyUser:
+                Bundle\MyBundle\Entity\MyUser: sha512
+                Bundle\MyBundle\Entity\MyUser: plaintext
+                Bundle\MyBundle\Entity\MyUser:
                     algorithm: sha512
                     encode-as-base64: true
                     iterations: 5
-                MyBundle/Entity/MyUser:
-                    service: my.custom.encoder.service.id
+                Bundle\MyBundle\Entity\MyUser:
+                    id: my.custom.encoder.service.id
 
     .. code-block:: xml
 
         <!-- app/config/security.xml -->
         <config>
             <encoders>
-                <encoder class="MyBundle\Entity\MyUser" algorithm="sha512" />
-                <encoder class="MyBundle\Entity\MyUser" algorithm="plaintext" />
-                <encoder class="MyBundle\Entity\MyUser"
+                <encoder class="Bundle\MyBundle\Entity\MyUser" algorithm="sha512" />
+                <encoder class="Bundle\MyBundle\Entity\MyUser" algorithm="plaintext" />
+                <encoder class="Bundle\MyBundle\Entity\MyUser"
                          algorithm="sha512"
                          encode-as-base64="true"
                          iterations="5"
                          />
-                <encoder class="MyBundle\Entity\MyUser"
-                         service="my.custom.encoder.service.id"
+                <encoder class="Bundle\MyBundle\Entity\MyUser"
+                         id="my.custom.encoder.service.id"
                          />
             </encoders>
         </config>
@@ -158,15 +158,15 @@ options, you only need to select the one which suits your needs best:
         // app/config/security.php
         $container->loadFromExtension('security', 'config', array(
             'encoders' => array(
-                'MyBundle\Entity\MyUser' => 'sha512',
-                'MyBundle\Entity\MyUser' => 'plaintext',
-                'MyBundle\Entity\MyUser' => array(
+                'Bundle\MyBundle\Entity\MyUser' => 'sha512',
+                'Bundle\MyBundle\Entity\MyUser' => 'plaintext',
+                'Bundle\MyBundle\Entity\MyUser' => array(
                     'algorithm' => 'sha512',
                     'encode-as-base64' => true,
                     'iterations' => 5,
                 ),
-                'MyBundle\Entity\MyUser' => array(
-                    'service' => 'my.custom.encoder.service.id',
+                'Bundle\MyBundle\Entity\MyUser' => array(
+                    'id' => 'my.custom.encoder.service.id',
                 ),
             ),
         ));
